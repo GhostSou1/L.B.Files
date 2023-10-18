@@ -217,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145013122}
   - component: {fileID: 145013123}
+  - component: {fileID: 145013124}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -254,6 +255,53 @@ MonoBehaviour:
   Window1: {fileID: 1989063998}
   Window2: {fileID: 1358947984}
   Window3: {fileID: 566865000}
+  priority: 0
+--- !u!114 &145013124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145013121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 8a0b605d8074c4041b58de0a25afb37f, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 145013123}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7768868a-b989-43e4-a3e2-e1e946f709e1
+    m_ActionName: Gameplay/Click[/Mouse/leftButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &298891188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,9 +1113,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566865001}
+  - component: {fileID: 566865002}
   m_Layer: 0
   m_Name: Gallery
-  m_TagString: Untagged
+  m_TagString: Window_3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,6 +1140,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &566865002
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566865000}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028502464, y: 0.31355047}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.870039, y: 10.520532}
+  m_EdgeRadius: 0
 --- !u!1 &605030899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,6 +1966,7 @@ GameObject:
   - component: {fileID: 1281820176}
   - component: {fileID: 1281820179}
   - component: {fileID: 1281820178}
+  - component: {fileID: 1281820180}
   - component: {fileID: 1281820177}
   m_Layer: 5
   m_Name: Button
@@ -1916,8 +1992,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -55, y: -50.200012}
-  m_SizeDelta: {x: 128.57, y: 132.57}
+  m_AnchoredPosition: {x: -52, y: -46.989}
+  m_SizeDelta: {x: 53.69, y: 51.31}
   m_Pivot: {x: 0.5000002, y: 0.5}
 --- !u!114 &1281820177
 MonoBehaviour:
@@ -1962,7 +2038,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1281820178}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1281820180}
+        m_TargetAssemblyTypeName: ButtonUse, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1281820178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,6 +2089,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281820175}
   m_CullTransparentMesh: 1
+--- !u!114 &1281820180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281820175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543be5740f4082947a67a5e99678f3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowButton: {fileID: 566865000}
+  spawnPoint: {fileID: 678816274}
 --- !u!1 &1296146710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,9 +2145,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1358947985}
+  - component: {fileID: 1358947986}
   m_Layer: 0
   m_Name: Question_app
-  m_TagString: Untagged
+  m_TagString: Window_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2067,6 +2170,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1358947986
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358947984}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.5913253, y: 1.0670469}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 13.437253, y: 5.958629}
+  m_EdgeRadius: 0
 --- !u!1 &1374914794
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,9 +4174,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1989063999}
+  - component: {fileID: 1989064000}
   m_Layer: 0
   m_Name: L.B.Files
-  m_TagString: Untagged
+  m_TagString: Window_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4071,6 +4201,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1989064000
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989063998}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.15211678, y: 0.40745497}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.6240654, y: 9.73006}
+  m_EdgeRadius: 0
 --- !u!1 &2001349863
 GameObject:
   m_ObjectHideFlags: 0
