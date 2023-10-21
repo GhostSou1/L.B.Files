@@ -33,7 +33,7 @@ public class Manager : MonoBehaviour
 
     void Update(){
 
-        if(priority == 1){
+       if(priority == 1){
             Vector3 pos1 = Window1.transform.position;
             Vector3 pos2 = Window2.transform.position;
             Vector3 pos3 = Window3.transform.position;
@@ -83,22 +83,6 @@ public class Manager : MonoBehaviour
             priority = 2;
         }else if(rayHit.collider.gameObject.tag == "Window_3"){
             priority = 3;
-        }
-
-        while(context.performed){
-            if(rayHit.collider.gameObject.tag == "Window_1"){
-            priority = 1;
-            Vector2 pos15 = Window1.transform.position;
-            pos15 = Input.mousePosition;
-            Window1.transform.position = pos15;
-            priority = 0;
-        }else if(rayHit.collider.gameObject.tag == "Window_2"){
-            priority = 2;
-            Vector2 pos25 = Window2.transform.position;
-            pos25 = Input.mousePosition;
-            Window2.transform.position = pos25;
-            priority = 0;
-        }
         }
     }
 }
