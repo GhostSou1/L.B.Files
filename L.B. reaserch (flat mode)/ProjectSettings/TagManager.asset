@@ -8,6 +8,7 @@ TagManager:
   - Window_1
   - Window_2
   - Window_3
+  - Window_4
   layers:
   - Default
   - TransparentFX
