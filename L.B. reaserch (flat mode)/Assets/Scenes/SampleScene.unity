@@ -7489,8 +7489,8 @@ MonoBehaviour:
     mute: 0
     source: {fileID: 0}
   - name: Fan
-    clip: {fileID: 8300000, guid: 4f0a662038c7aeb4c8c2d61ca647bfae, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: 749c61333e2909846a211174d6cbdeeb, type: 3}
+    volume: 0.15
     pitch: 1
     loop: 1
     mute: 0
