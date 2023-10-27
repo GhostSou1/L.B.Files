@@ -49,3 +49,6 @@ TagManager:
   - name: UP
     uniqueID: 1074463441
     locked: 0
+  - name: Middle
+    uniqueID: 2043116875
+    locked: 0
