@@ -12,6 +12,8 @@ public class Manager : MonoBehaviour
 
     private Camera _mainCamera;
 
+    public ReadInput theCode;
+
     float priority = 0;
 
     void Awake(){
@@ -38,6 +40,14 @@ public class Manager : MonoBehaviour
     }
 
     void Update(){
+
+        if(theCode.EventValue == 1f){
+            StartCoroutine(WhenEventStarts());
+            theCode.EventValue = 0f;
+        }
+
+
+
 
        if(priority == 1){
             Vector3 pos1 = Window1.transform.position;
@@ -117,5 +127,14 @@ public class Manager : MonoBehaviour
         }else if(rayHit.collider.gameObject.tag == "Window_4"){
             priority = 4;
         }
+    }
+
+
+    IEnumerator WhenEventStarts(){
+        Debug.Log("ItStarted");
+        yield return new WaitForSeconds(3);
+        Debug.Log("Jumpscare");
+        yield return new WaitForSeconds(1);
+        Debug.Log("StartConvo");
     }
 }
