@@ -21,6 +21,8 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Fan");
+
         Vector3 pos1 = Window1.transform.position;
         Vector3 pos2 = Window2.transform.position;
         Vector3 pos3 = Window3.transform.position;
@@ -98,7 +100,9 @@ public class Manager : MonoBehaviour
 
     public void OnClick(InputAction.CallbackContext context){
         if(context.canceled){
+            FindObjectOfType<AudioManager>().Play("Click");
             return;
+            
         }
 
         var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
