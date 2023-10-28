@@ -16,6 +16,15 @@ public class Manager : MonoBehaviour
 
     float priority = 0;
 
+    public ButtonUse use1;
+    public ButtonUse use2;
+    public ButtonUse use3;
+
+    public GameObject jumpScare;
+    public GameObject DialogueBox;
+
+    public DialogueTrirger trigger;
+
     void Awake(){
         _mainCamera = Camera.main;
     }
@@ -49,7 +58,7 @@ public class Manager : MonoBehaviour
 
 
 
-       if(priority == 1){
+       if(priority == 1 || use1.prepare == 1f){
             Vector3 pos1 = Window1.transform.position;
             Vector3 pos2 = Window2.transform.position;
             Vector3 pos3 = Window3.transform.position;
@@ -63,7 +72,8 @@ public class Manager : MonoBehaviour
             Window1.transform.position = pos1;
             Window4.transform.position = pos4;
             priority = 0;
-        }else if(priority == 2){
+            use1.prepare = 0f;
+        }else if(priority == 2 || use1.prepare == 2f){
             Vector3 pos1 = Window1.transform.position;
             Vector3 pos2 = Window2.transform.position;
             Vector3 pos3 = Window3.transform.position;
@@ -77,7 +87,8 @@ public class Manager : MonoBehaviour
             Window1.transform.position = pos1;
             Window4.transform.position = pos4;
             priority = 0;
-        }else if(priority == 3){
+            use2.prepare = 0f;
+        }else if(priority == 3 || use1.prepare == 3f){
             Vector3 pos1 = Window1.transform.position;
             Vector3 pos2 = Window2.transform.position;
             Vector3 pos3 = Window3.transform.position;
@@ -91,6 +102,7 @@ public class Manager : MonoBehaviour
             Window1.transform.position = pos1;
             Window4.transform.position = pos4;
             priority = 0;
+            use3.prepare = 0f;
         }else if(priority == 4){
             Vector3 pos1 = Window1.transform.position;
             Vector3 pos2 = Window2.transform.position;
@@ -131,10 +143,29 @@ public class Manager : MonoBehaviour
 
 
     IEnumerator WhenEventStarts(){
-        Debug.Log("ItStarted");
-        yield return new WaitForSeconds(3);
+        
+        Window1.transform.position = new Vector3(0, 15, 0);
+        Window2.transform.position = new Vector3(0, 15, 0);
+        Window3.transform.position = new Vector3(0, 15, 0);
+        Window4.transform.position = new Vector3(0, 15, 0);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        FindObjectOfType<AudioManager>().StopPlaying("Fan");
+        FindObjectOfType<AudioManager>().Play("shutdown");
+        yield return new WaitForSeconds(3);      
+        yield return new WaitForSeconds(5);
         Debug.Log("Jumpscare");
+        jumpScare.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        FindObjectOfType<AudioManager>().Play("Jumpscare");
+        
         yield return new WaitForSeconds(1);
+        FindObjectOfType<AudioManager>().Play("Fan");
+        jumpScare.SetActive(false);
         Debug.Log("StartConvo");
+        trigger.Trigger();
+        DialogueBox.SetActive(true);
     }
 }
