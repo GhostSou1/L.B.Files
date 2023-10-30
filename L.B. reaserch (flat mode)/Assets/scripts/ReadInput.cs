@@ -10,7 +10,7 @@ public class ReadInput : MonoBehaviour
 
     public void ReadStringInput(string r){
         Input = r;
-        if(Input == "TheRatHelp"){
+        if(Input == "TheRatHelp" && EventValue == 0f){
             EventValue = 1f;
         }
     }

@@ -23,7 +23,7 @@ public class Manager : MonoBehaviour
     public GameObject jumpScare;
     public GameObject DialogueBox;
 
-    public DialogueTrirger trigger;
+    public DialogueHappener Dialoguestart;
 
     void Awake(){
         _mainCamera = Camera.main;
@@ -52,7 +52,7 @@ public class Manager : MonoBehaviour
 
         if(theCode.EventValue == 1f){
             StartCoroutine(WhenEventStarts());
-            theCode.EventValue = 0f;
+            theCode.EventValue = 3f;
         }
 
 
@@ -155,7 +155,6 @@ public class Manager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("shutdown");
         yield return new WaitForSeconds(3);      
         yield return new WaitForSeconds(5);
-        Debug.Log("Jumpscare");
         jumpScare.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -164,8 +163,7 @@ public class Manager : MonoBehaviour
         yield return new WaitForSeconds(1);
         FindObjectOfType<AudioManager>().Play("Fan");
         jumpScare.SetActive(false);
-        Debug.Log("StartConvo");
-        trigger.Trigger();
+        Dialoguestart.DialogueStarting = true;
         DialogueBox.SetActive(true);
     }
 }
