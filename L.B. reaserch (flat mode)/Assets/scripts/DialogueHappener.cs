@@ -12,6 +12,9 @@ public class DialogueHappener : MonoBehaviour
 
     public double poradie;
 
+    public GameObject TalkBack;
+    public GameObject Shadow;
+
     public GameObject DialogueMort;
     public GameObject questionOptions;
     public GameObject DiaWindow;
@@ -25,6 +28,11 @@ public class DialogueHappener : MonoBehaviour
     public GameObject puzzle;
     public GameObject suprise;
     public GameObject laugh;
+
+    public GameObject Window1;
+    public GameObject Window2;
+    public GameObject Window3;
+    public GameObject Window4;
 
     public bool DialogueStarting = false;
     public bool DialogueEnding = false;
@@ -156,6 +164,8 @@ public class DialogueHappener : MonoBehaviour
             puzzle.SetActive(false);
             normalish.SetActive(true);
             questionOptions.SetActive(true);
+            TalkBack.SetActive(true);
+            Shadow.SetActive(false);
             DialogueEnding = true;
             buttonText.text = "End conversation";
         }else if(poradie == 21){
@@ -321,7 +331,7 @@ public class DialogueHappener : MonoBehaviour
             poradie = 18;
             laugh.SetActive(true);
             Optioned_3.SetActive(false);
-        }else if(DialogueEnding == true && poradie == 18 || DialogueEnding == true && poradie == 17){
+        }else if(DialogueEnding == true && poradie == 18 || DialogueEnding == true && poradie == 17 || DialogueEnding == true && poradie == 19){
             StopAllCoroutines();
             StartCoroutine(TypeSentence("Well if you want to talk to me again you can find me in gallery"));
             questionOptions.SetActive(false);
@@ -334,7 +344,7 @@ public class DialogueHappener : MonoBehaviour
     }
 
     public void Talk_2(){
-        if(poradie == 17 || poradie == 18){    
+        if(poradie == 17 || poradie == 18 || poradie == 19){    
             StopAllCoroutines();
             StartCoroutine(TypeSentence("Well Jack didn't said to much"));
             poradie = 21;
@@ -347,7 +357,7 @@ public class DialogueHappener : MonoBehaviour
     }
 
     public void Talk_3(){
-        if(poradie == 17 || poradie == 18){    
+        if(poradie == 17 || poradie == 18 || poradie == 19){    
             StopAllCoroutines();
             StartCoroutine(TypeSentence("Better question would be what I dont know!"));
             poradie = 31;
@@ -360,7 +370,7 @@ public class DialogueHappener : MonoBehaviour
     }
 
     public void Talk_4(){
-        if(poradie == 17 || poradie == 18){    
+        if(poradie == 17 || poradie == 18 || poradie == 19){    
             StopAllCoroutines();
             StartCoroutine(TypeSentence("Living Bytes are actual living programs"));
             poradie = 41;
@@ -373,11 +383,16 @@ public class DialogueHappener : MonoBehaviour
     }
 
     public void BackTalk(){
-       DiaWindow.SetActive(false);    
+       DiaWindow.SetActive(true);    
        StartCoroutine(TypeSentence("Welcome back! Any other questions")); 
        questionOptions.SetActive(true);
-       poradie = 18;
+       poradie = 19;
        normalish.SetActive(true);
+       DialogueEnding = true;
+       Window1.transform.position = new Vector3(0, 15, 0);
+       Window2.transform.position = new Vector3(0, 15, 0);
+       Window3.transform.position = new Vector3(0, 15, 0);
+       Window4.transform.position = new Vector3(0, 15, 0);
     }
         
    
