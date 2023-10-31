@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Manager : MonoBehaviour
 {
@@ -10,11 +11,15 @@ public class Manager : MonoBehaviour
     public GameObject Window3;
     public GameObject Window4;
 
+    public TextMeshProUGUI bootingText;
+
     private Camera _mainCamera;
 
     public ReadInput theCode;
 
     float priority = 0;
+
+    public GameObject IntroAnimation;
 
     public ButtonUse use1;
     public ButtonUse use2;
@@ -32,20 +37,22 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("Fan");
+        StartCoroutine(Intro());
 
         Vector3 pos1 = Window1.transform.position;
         Vector3 pos2 = Window2.transform.position;
         Vector3 pos3 = Window3.transform.position;
         Vector3 pos4 = Window4.transform.position;
-        pos1.z = 0;
+        pos1.z = -1;
         pos2.z = 0;
-        pos3.z = 0;
+        pos3.z = -2;
         pos4.z = 0;
         Window3.transform.position = pos3;
         Window2.transform.position = pos2;
         Window1.transform.position = pos1;
         Window4.transform.position = pos4;
+
+
     }
 
     void Update(){
@@ -63,9 +70,9 @@ public class Manager : MonoBehaviour
             Vector3 pos2 = Window2.transform.position;
             Vector3 pos3 = Window3.transform.position;
             Vector3 pos4 = Window4.transform.position;
-            pos1.z = -1;
+            pos1.z = -2;
             pos2.z = 0;
-            pos3.z = 0;
+            pos3.z = -1;
             pos4.z = 0;
             Window3.transform.position = pos3;
             Window2.transform.position = pos2;
@@ -78,8 +85,8 @@ public class Manager : MonoBehaviour
             Vector3 pos2 = Window2.transform.position;
             Vector3 pos3 = Window3.transform.position;
             Vector3 pos4 = Window4.transform.position;
-            pos1.z = 0;
-            pos2.z = -1;
+            pos1.z = -1;
+            pos2.z = -2;
             pos3.z = 0;
             pos4.z = 0;
             Window3.transform.position = pos3;
@@ -93,9 +100,9 @@ public class Manager : MonoBehaviour
             Vector3 pos2 = Window2.transform.position;
             Vector3 pos3 = Window3.transform.position;
             Vector3 pos4 = Window4.transform.position;
-            pos1.z = 0;
+            pos1.z = -1;
             pos2.z = 0;
-            pos3.z = -1;
+            pos3.z = -2;
             pos4.z = 0;
             Window3.transform.position = pos3;
             Window2.transform.position = pos2;
@@ -108,10 +115,10 @@ public class Manager : MonoBehaviour
             Vector3 pos2 = Window2.transform.position;
             Vector3 pos3 = Window3.transform.position;
             Vector3 pos4 = Window4.transform.position;
-            pos1.z = 0;
-            pos2.z = 0;
+            pos1.z = -1;
+            pos2.z = -2;
             pos3.z = 0;
-            pos4.z = -1;
+            pos4.z = -3;
             Window3.transform.position = pos3;
             Window2.transform.position = pos2;
             Window1.transform.position = pos1;
@@ -165,5 +172,14 @@ public class Manager : MonoBehaviour
         jumpScare.SetActive(false);
         Dialoguestart.DialogueStarting = true;
         DialogueBox.SetActive(true);
+    }
+
+    IEnumerator Intro(){
+        FindObjectOfType<AudioManager>().Play("booting");
+        yield return new WaitForSeconds(6);
+        bootingText.text = "welcome back";
+        FindObjectOfType<AudioManager>().Play("Fan");
+        yield return new WaitForSeconds(1);
+        IntroAnimation.SetActive(false);
     }
 }
