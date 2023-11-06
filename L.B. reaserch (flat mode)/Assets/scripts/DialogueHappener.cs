@@ -39,7 +39,7 @@ public class DialogueHappener : MonoBehaviour
 
     void Start()
     {
-        nameText.text = "Mortimer(#001)";
+        nameText.text = "Mortimer (#001)";
         buttonText.text = "Continue";
         dialogueText.text = "HA HA HA!";
         poradie = 0;
